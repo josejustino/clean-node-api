@@ -2,8 +2,9 @@
   "compilerOptions": {
     "outDir": "./dist",
     "module": "CommonJS",
-    "target": "ES2023",
+    "target": "ES2022",
     "esModuleInterop": true,
-    "allowJs": true
+    "allowJs": true,
+    "strictNullChecks": true
   }
 }
