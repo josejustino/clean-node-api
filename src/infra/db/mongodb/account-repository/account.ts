@@ -7,8 +7,14 @@ import { type AddAccountModel } from '../../../../domain/usecases/add-account'
 export class AccountMongoRepository implements AddAccountRepository {
   async add (accountData: AddAccountModel): Promise<AccountModel> {
     const accountCollection = MongoHelper.getCollection('accounts')
-    const insertedResult = await accountCollection.insertOne(accountData)
+    const result = await accountCollection.insertOne(accountData)
 
-    return { ...accountData, id: insertedResult.insertedId as unknown as string }
+    const { insertedId: id } = result
+
+    const account = await accountCollection.findOne({ _id: id })
+
+    const { _id, ...accountWithoutId } = account as any
+
+    return { ...accountWithoutId, id: _id.toHexString() }
   }
 }
