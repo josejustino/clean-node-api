@@ -13,8 +13,6 @@ export class AccountMongoRepository implements AddAccountRepository {
 
     const account = await accountCollection.findOne({ _id: id })
 
-    const { _id, ...accountWithoutId } = account as any
-
-    return { ...accountWithoutId, id: _id.toHexString() }
+    return MongoHelper.map(account)
   }
 }
