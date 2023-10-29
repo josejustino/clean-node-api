@@ -7,7 +7,13 @@ import type { Config } from 'jest'
 
 const config: Config = {
   roots: ['<rootDir>/src'],
-  collectCoverageFrom: ['<rootDir>/src/**/*.ts'],
+  collectCoverageFrom: [
+    '<rootDir>/src/**/*.ts',
+    '!<rootDir>/src/main/**',
+    '!<rootDir>/src/**/*-protocols.ts/**',
+    '!<rootDir>/src/**/protocols/**',
+    '!<rootDir>/src/test/**'
+  ],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
   passWithNoTests: true,
