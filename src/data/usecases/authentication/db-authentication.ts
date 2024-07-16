@@ -1,20 +1,23 @@
 import { type Authentication, type AuthenticationParams } from '../../../domain/usecases/authentication'
-import { type LoadAccountByEmailRepository } from '../../protocols/db'
+import { type UpdateAccessTokenRepository, type LoadAccountByEmailRepository } from '../../protocols/db'
 import { type TokenGenerator, type HashComparer } from '../../protocols/cryptography'
 
 export class DbAuthentication implements Authentication {
   private readonly loadAccountByEmailRepository: LoadAccountByEmailRepository
   private readonly hashComparer: HashComparer
   private readonly tokenGenerator: TokenGenerator
+  private readonly updateAccessTokenRepository: UpdateAccessTokenRepository
 
   constructor (
     loadAccountByEmailRepository: LoadAccountByEmailRepository,
     hashComparer: HashComparer,
-    tokenGenerator: TokenGenerator
+    tokenGenerator: TokenGenerator,
+    updateAccessTokenRepository: UpdateAccessTokenRepository
   ) {
     this.loadAccountByEmailRepository = loadAccountByEmailRepository
     this.hashComparer = hashComparer
     this.tokenGenerator = tokenGenerator
+    this.updateAccessTokenRepository = updateAccessTokenRepository
   }
 
   async auth (params: AuthenticationParams): Promise<string | null> {
@@ -23,6 +26,7 @@ export class DbAuthentication implements Authentication {
       const isValid = await this.hashComparer.compare(params.password, account?.password)
       if (isValid) {
         const accessToken = await this.tokenGenerator.generate(account.id)
+        await this.updateAccessTokenRepository.update(account.id, accessToken)
         return accessToken
       }
     }
