@@ -12,7 +12,8 @@ const config: Config = {
     '!<rootDir>/src/main/**',
     '!<rootDir>/src/**/*-protocols.ts/**',
     '!<rootDir>/src/**/protocols/**',
-    '!<rootDir>/src/test/**'
+    '!<rootDir>/src/test/**',
+    '!<rootDir>/src/**/index.ts'
   ],
   coverageDirectory: 'coverage',
   testEnvironment: 'node',
