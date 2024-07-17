@@ -4,5 +4,5 @@ export interface AuthenticationParams {
 }
 
 export interface Authentication {
-  auth: (params: AuthenticationParams) => Promise<string | null>
+  auth: (params: AuthenticationParams) => Promise<string>
 }
