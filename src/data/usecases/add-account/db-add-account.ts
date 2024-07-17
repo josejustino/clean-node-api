@@ -1,10 +1,7 @@
-import {
-  type AccountModel,
-  type AddAccountModel,
-  type AddAccount,
-  type Hasher,
-  type AddAccountRepository
-} from './db-add-account-protocols'
+import { type AccountModel } from '../../../domain/models/account'
+import { type AddAccount, type AddAccountModel } from '../../../domain/usecases/add-account'
+import { type Hasher } from '../../protocols/cryptography'
+import { type AddAccountRepository } from '../../protocols/db/account'
 
 export class DbAddAccount implements AddAccount {
   private readonly hasher: Hasher

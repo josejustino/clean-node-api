@@ -4,7 +4,7 @@ import {
   type LoadAccountByEmailRepository,
   type AddAccountRepository,
   type UpdateAccessTokenRepository
-} from '../../../../data/protocols/db'
+} from '../../../../data/protocols/db/account'
 import { type AccountModel } from '../../../../domain/models/account'
 import { type AddAccountModel } from '../../../../domain/usecases/add-account'
 import { ObjectId } from 'mongodb'

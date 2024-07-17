@@ -1,9 +1,9 @@
-import { LogMongoRepository } from '../../../infra/db/mongodb/log-repository/log'
+import { LogMongoRepository } from '../../../infra/db/mongodb/log'
 import { BcryptAdapter } from '../../../infra/criptography'
-import { AccountMongoRepository } from '../../../infra/db/mongodb/account-repository/account'
+import { AccountMongoRepository } from '../../../infra/db/mongodb/account'
 import { type Controller } from '../../../presentation/protocols'
 import { LogControllerDecorator } from '../../decorators/log'
-import { makeLoginValidation } from './login-validation'
+import { makeLoginValidation } from './login-validation-factory'
 import { LoginController } from '../../../presentation/controllers/login/login'
 import { DbAuthentication } from '../../../data/usecases/authentication'
 

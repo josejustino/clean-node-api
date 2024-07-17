@@ -1,10 +1,8 @@
+import { type AccountModel } from '../../../domain/models/account'
+import { type AddAccountModel } from '../../../domain/usecases/add-account'
+import { type Hasher } from '../../protocols/cryptography'
+import { type AddAccountRepository } from '../../protocols/db/account'
 import { DbAddAccount } from './db-add-account'
-import {
-  type AccountModel,
-  type AddAccountModel,
-  type AddAccountRepository,
-  type Hasher
-} from './db-add-account-protocols'
 
 const makeHasher = (): Hasher => {
   class HasherStub implements Hasher {
