@@ -6,7 +6,7 @@ let accountCollection: Collection
 
 describe('Account MongoRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URL as string)
+    await MongoHelper.connect(process.env.MONGO_URL)
   })
 
   afterAll(async () => {
@@ -58,5 +58,21 @@ describe('Account MongoRepository', () => {
     const sut = makeSut()
     const account = await sut.loadByEmail('any_email@mail.com')
     expect(account).toBeFalsy()
+  })
+
+  test('Should update the account accessToken on updateAccessToken success', async () => {
+    let account = null
+    const sut = makeSut()
+    const res = await accountCollection.insertOne({
+      name: 'any_name',
+      email: 'any_email@mail.com',
+      password: 'any_password'
+    })
+    account = await accountCollection.findOne({ _id: res.insertedId })
+    expect(account.accessToken).toBeFalsy()
+    await sut.updateAccessToken(res.insertedId.toHexString(), 'any_token')
+    account = await accountCollection.findOne({ _id: res.insertedId })
+    expect(account).toBeTruthy()
+    expect(account.accessToken).toBe('any_token')
   })
 })
