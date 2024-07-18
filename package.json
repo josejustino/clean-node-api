@@ -2,7 +2,11 @@
   "name": "clean-node-api",
   "version": "1.1.0",
   "description": "NodeJs Rest Api using TDD, Clean Architecture and Typescript",
-  "main": "index.js",
+  "author": "José Justino Neto",
+  "license": "ISC",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
@@ -17,9 +21,6 @@
     "test:staged": "npm test -- --findRelatedTests",
     "test:ci": "npm test -- --coverage"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@shelf/jest-mongodb": "^4.1.7",
     "@types/bcrypt": "^5.0.0",
