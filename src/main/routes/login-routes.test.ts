@@ -1,15 +1,15 @@
 import request from 'supertest'
-
+import { hash } from 'bcrypt'
+import { type Collection } from 'mongodb'
 import app from '../config/app'
 import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
-import { type Collection } from 'mongodb'
-import { hash } from 'bcrypt'
+import env from '../config/env'
 
 let accountCollection: Collection
 
 describe('Login Routes', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URL)
+    await MongoHelper.connect(env.mongoUrl)
   })
 
   afterAll(async () => {

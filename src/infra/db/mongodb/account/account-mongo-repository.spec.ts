@@ -1,12 +1,13 @@
-import { type Collection } from 'mongodb'
+import { type Document, type WithId, type Collection } from 'mongodb'
 import { MongoHelper } from '../helpers/mongo-helper'
 import { AccountMongoRepository } from './account-mongo-repository'
+import env from '../../../../main/config/env'
 
 let accountCollection: Collection
 
 describe('Account MongoRepository', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URL)
+    await MongoHelper.connect(env.mongoUrl)
   })
 
   afterAll(async () => {
@@ -61,7 +62,7 @@ describe('Account MongoRepository', () => {
   })
 
   test('Should update the account accessToken on updateAccessToken success', async () => {
-    let account = null
+    let account: WithId<Document> | null
     const sut = makeSut()
     const res = await accountCollection.insertOne({
       name: 'any_name',
@@ -69,10 +70,10 @@ describe('Account MongoRepository', () => {
       password: 'any_password'
     })
     account = await accountCollection.findOne({ _id: res.insertedId })
-    expect(account.accessToken).toBeFalsy()
+    expect(account?.accessToken).toBeFalsy()
     await sut.updateAccessToken(res.insertedId.toHexString(), 'any_token')
     account = await accountCollection.findOne({ _id: res.insertedId })
     expect(account).toBeTruthy()
-    expect(account.accessToken).toBe('any_token')
+    expect(account?.accessToken).toBe('any_token')
   })
 })
