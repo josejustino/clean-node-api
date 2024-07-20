@@ -6,10 +6,7 @@ services:
     volumes:
       - ./data:/data/db
     ports: 
-      - "27017:27017" 
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin
+      - "27017:27017"
   api:
     container_name: api-container
     build: 
@@ -22,7 +19,7 @@ services:
     ports:
       - "5050:5050"
     environment:
-      - MONGO_URL=mongodb://admin:admin@mongo:27017/
+      - MONGO_URL=mongodb://mongo:27017/clean-node-api
       - JWT_SECRET=tj670==
     links:
       - mongo
