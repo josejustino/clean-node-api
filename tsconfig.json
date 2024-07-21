@@ -4,7 +4,8 @@
     "module": "CommonJS",
     "target": "ES2022",
     "esModuleInterop": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "rootDir": "src"
   },
   "include": [
     "src"
