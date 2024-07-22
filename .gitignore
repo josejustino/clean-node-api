@@ -3,4 +3,5 @@ dist
 coverage
 .vscode
 data
+!src/data
 .env.local
