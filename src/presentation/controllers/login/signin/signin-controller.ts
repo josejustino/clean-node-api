@@ -1,8 +1,8 @@
-import { type Authentication } from '../../../domain/usecases/authentication'
-import { badRequest, ok, serverError, unauthorized } from '../../helpers/http/http-helper'
-import { type HttpRequest, type HttpResponse, type Validation, type Controller } from '../../protocols'
+import { type Authentication } from '../../../../domain/usecases/authentication'
+import { badRequest, ok, serverError, unauthorized } from '../../../helpers/http/http-helper'
+import { type HttpRequest, type HttpResponse, type Validation, type Controller } from '../../../protocols'
 
-export class LoginController implements Controller {
+export class SignInController implements Controller {
   constructor (
     private readonly authentication: Authentication,
     private readonly validation: Validation

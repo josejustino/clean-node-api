@@ -1,8 +1,8 @@
-import { type Authentication, type AuthenticationParams } from '../../../domain/usecases/authentication'
-import { MissingParamError } from '../../errors'
-import { badRequest, ok, serverError, unauthorized } from '../../helpers/http/http-helper'
-import { type HttpRequest, type Validation } from '../../protocols'
-import { LoginController } from './login-controller'
+import { type Authentication, type AuthenticationParams } from '../../../../domain/usecases/authentication'
+import { MissingParamError } from '../../../errors'
+import { badRequest, ok, serverError, unauthorized } from '../../../helpers/http/http-helper'
+import { type HttpRequest, type Validation } from '../../../protocols'
+import { SignInController } from './signin-controller'
 
 const makeValidation = (): Validation => {
   class ValidationStub implements Validation {
@@ -30,7 +30,7 @@ const makeFakeRequest = (): HttpRequest => ({
 })
 
 interface SutTypes {
-  sut: LoginController
+  sut: SignInController
   authenticationStub: Authentication
   validationStub: Validation
 }
@@ -38,7 +38,7 @@ interface SutTypes {
 const makeSut = (): SutTypes => {
   const authenticationStub = makeAuthentication()
   const validationStub = makeValidation()
-  const sut = new LoginController(authenticationStub, validationStub)
+  const sut = new SignInController(authenticationStub, validationStub)
   return {
     sut,
     authenticationStub,
@@ -46,7 +46,7 @@ const makeSut = (): SutTypes => {
   }
 }
 
-describe('Login Controller', () => {
+describe('Signin Controller', () => {
   test('Should call Authentication with correct values', async () => {
     const { sut, authenticationStub } = makeSut()
     const authSpy = jest.spyOn(authenticationStub, 'auth')
