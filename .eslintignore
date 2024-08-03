@@ -3,4 +3,4 @@ dist
 coverage
 package-lock.json
 package.json
-data
+./data
