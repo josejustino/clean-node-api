@@ -7,7 +7,7 @@ import env from '../config/env'
 
 let accountCollection: Collection
 
-describe('SignIn Routes', () => {
+describe('Login Routes', () => {
   beforeAll(async () => {
     await MongoHelper.connect(env.mongoUrl)
   })
@@ -32,6 +32,15 @@ describe('SignIn Routes', () => {
           passwordConfirmation: '123456'
         })
         .expect(200)
+      await request(app)
+        .post('/api/signup')
+        .send({
+          name: 'José',
+          email: 'jose.justinno@gmail.com',
+          password: '123456',
+          passwordConfirmation: '123456'
+        })
+        .expect(403)
     })
   })
 
