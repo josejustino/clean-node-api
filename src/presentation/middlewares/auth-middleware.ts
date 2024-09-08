@@ -4,7 +4,10 @@ import { forbidden, ok, serverError } from '../helpers/http'
 import { type HttpRequest, type HttpResponse, type Middleware } from '../protocols'
 
 export class AuthMiddleware implements Middleware {
-  constructor (private readonly loadAccountByToken: LoadAccountByToken, private readonly role?: string) { }
+  constructor (
+    private readonly loadAccountByToken: LoadAccountByToken,
+    private readonly role?: string
+  ) { }
 
   async handle (httpRequest: HttpRequest): Promise<HttpResponse> {
     try {
