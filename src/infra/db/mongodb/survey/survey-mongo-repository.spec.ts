@@ -19,7 +19,7 @@ describe('Account MongoRepository', () => {
   })
 
   beforeEach(async () => {
-    surveyCollection = MongoHelper.getCollection('surveys')
+    surveyCollection = await MongoHelper.getCollection('surveys')
     await surveyCollection.deleteMany({})
   })
 
