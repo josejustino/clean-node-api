@@ -1,6 +1,6 @@
-import { type Authentication, type AuthenticationParams } from '../../../domain/usecases/authentication'
-import { type UpdateAccessTokenRepository, type LoadAccountByEmailRepository } from '../../protocols/db/account'
-import { type Encrypter, type HashComparer } from '../../protocols/cryptography'
+import { type Authentication, type AuthenticationParams } from '@/domain/usecases/authentication'
+import { type UpdateAccessTokenRepository, type LoadAccountByEmailRepository } from '@/data/protocols/db/account'
+import { type Encrypter, type HashComparer } from '@/data/protocols/cryptography'
 
 export class DbAuthentication implements Authentication {
   constructor (

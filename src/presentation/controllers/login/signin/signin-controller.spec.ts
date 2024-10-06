@@ -1,7 +1,7 @@
-import { type Authentication, type AuthenticationParams } from '../../../../domain/usecases/authentication'
-import { MissingParamError } from '../../../errors'
-import { badRequest, ok, serverError, unauthorized } from '../../../helpers/http/http-helper'
-import { type HttpRequest, type Validation } from '../../../protocols'
+import { type Authentication, type AuthenticationParams } from '@/domain/usecases/authentication'
+import { MissingParamError } from '@/presentation/errors'
+import { badRequest, ok, serverError, unauthorized } from '@/presentation/helpers/http'
+import { type HttpRequest, type Validation } from '@/presentation/protocols'
 import { SignInController } from './signin-controller'
 
 const makeValidation = (): Validation => {

@@ -1,8 +1,8 @@
 import request from 'supertest'
 import { type Collection } from 'mongodb'
-import app from '../config/app'
-import { MongoHelper } from '../../infra/db/mongodb/helpers/mongo-helper'
-import env from '../config/env'
+import { MongoHelper } from '@/infra/db/mongodb/helpers/mongo-helper'
+import app from '@/main/config/app'
+import env from '@/main/config/env'
 import { hash } from 'bcrypt'
 import { sign } from 'jsonwebtoken'
 
