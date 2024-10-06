@@ -1,13 +1,13 @@
-import { MongoHelper } from '../helpers/mongo-helper'
+import { MongoHelper } from '@/infra/db/mongodb/helpers'
 
 import {
   type LoadAccountByEmailRepository,
   type AddAccountRepository,
   type UpdateAccessTokenRepository,
   type LoadAccountByTokenRepository
-} from '../../../../data/protocols/db/account'
-import { type AccountModel } from '../../../../domain/models/account'
-import { type AddAccountModel } from '../../../../domain/usecases/add-account'
+} from '@/data/protocols/db/account'
+import { type AccountModel } from '@/domain/models/account'
+import { type AddAccountModel } from '@/domain/usecases/add-account'
 import { ObjectId } from 'mongodb'
 
 export class AccountMongoRepository implements AddAccountRepository, LoadAccountByEmailRepository, UpdateAccessTokenRepository, LoadAccountByTokenRepository {

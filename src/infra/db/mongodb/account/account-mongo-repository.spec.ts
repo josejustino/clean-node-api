@@ -1,7 +1,7 @@
 import { type Document, type WithId, type Collection } from 'mongodb'
-import { MongoHelper } from '../helpers/mongo-helper'
+import { MongoHelper } from '@/infra/db/mongodb/helpers'
 import { AccountMongoRepository } from './account-mongo-repository'
-import env from '../../../../main/config/env'
+import env from '@/main/config/env'
 
 let accountCollection: Collection
 

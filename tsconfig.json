@@ -5,13 +5,13 @@
     "target": "ES2022",
     "esModuleInterop": true,
     "isolatedModules": true,
-    "rootDir": "src"
+    "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "include": [
     "src"
-  ],
-  "exclude": [
-    "**/*.spec.ts",
-    "**/*.spec.ts"
   ]
 }
