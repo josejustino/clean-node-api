@@ -12,6 +12,7 @@
         "checksVoidReturn": false
       }
     ],
-    "@typescript-eslint/no-floating-promises": "off"
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/consistent-type-definitions": "off"
   }
 }
