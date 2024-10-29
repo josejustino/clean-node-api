@@ -1,5 +1,5 @@
 import { type AccountModel } from '@/domain/models/account'
-import { type AddAccountModel } from '@/domain/usecases/add-account'
+import { type AddAccountModel } from '@/domain/usecases/account/add-account'
 import { type Hasher } from '@/data/protocols/cryptography'
 import { type LoadAccountByEmailRepository, type AddAccountRepository } from '@/data/protocols/db/account'
 import { DbAddAccount } from './db-add-account'

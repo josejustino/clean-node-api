@@ -1,6 +1,6 @@
 import { type LoadSurveyByIdRepository } from '@/data/protocols/db/survey'
 import { type SurveyModel } from '@/domain/models'
-import { type LoadSurveyById } from '@/domain/usecases'
+import { type LoadSurveyById } from '@/domain/usecases/survey'
 
 export class DbLoadSurveyById implements LoadSurveyById {
   constructor (private readonly loadSurveyByIdRepository: LoadSurveyByIdRepository) {}

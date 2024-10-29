@@ -1,6 +1,6 @@
 import { type LoadSurveysRepository, type AddSurveyRepository, type LoadSurveyByIdRepository } from '@/data/protocols/db/survey'
 import { type SurveyModel } from '@/domain/models'
-import { type AddSurveyModel } from '@/domain/usecases'
+import { type AddSurveyModel } from '@/domain/usecases/survey'
 import { MongoHelper } from '@/infra/db/mongodb/helpers'
 import { ObjectId } from 'mongodb'
 

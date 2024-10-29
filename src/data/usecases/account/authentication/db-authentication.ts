@@ -1,4 +1,4 @@
-import { type Authentication, type AuthenticationParams } from '@/domain/usecases/authentication'
+import { type Authentication, type AuthenticationParams } from '@/domain/usecases/account/authentication'
 import { type UpdateAccessTokenRepository, type LoadAccountByEmailRepository } from '@/data/protocols/db/account'
 import { type Encrypter, type HashComparer } from '@/data/protocols/cryptography'
 
