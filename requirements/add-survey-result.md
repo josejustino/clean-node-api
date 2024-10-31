@@ -17,5 +17,5 @@
 3. [x] Retorna erro **403** se o survey_id passado na URL for inválido
 4. [] Retorna erro **403** se a resposta enviada pelo client for uma resposta inválida
 5. [] Retorna erro **500** se der erro ao tentar criar o resultado da enquete
-7. [] Retorna erro **500** se der erro ao tentar atualizar o resultado da enquete
-8. [x] Retorna erro **500** se der erro ao tentar carregar a enquete
+6. [] Retorna erro **500** se der erro ao tentar atualizar o resultado da enquete
+7. [x] Retorna erro **500** se der erro ao tentar carregar a enquete
