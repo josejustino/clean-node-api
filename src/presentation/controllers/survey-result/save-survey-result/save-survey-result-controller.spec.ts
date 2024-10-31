@@ -24,7 +24,7 @@ const makeFakeSurvey = (): SurveyModel => (
 
 const makeLoadSurveyById = (): LoadSurveyById => {
   class LoadSurveyByIdStub implements LoadSurveyById {
-    async loadById (id: string): Promise<SurveyModel> {
+    async loadById (params: LoadSurveyById.Params): Promise<SurveyModel> {
       return await new Promise(resolve => { resolve(makeFakeSurvey()) })
     }
   }
@@ -58,6 +58,6 @@ describe('SaveSurveyResult Controller', () => {
     const { sut, loadSurveyByIdStub } = makeSut()
     const loadByIdSpy = jest.spyOn(loadSurveyByIdStub, 'loadById')
     await sut.handle(makeFakeRequest())
-    expect(loadByIdSpy).toHaveBeenCalledWith('any_survey_id')
+    expect(loadByIdSpy).toHaveBeenCalledWith({ surveyId: 'any_survey_id' })
   })
 })

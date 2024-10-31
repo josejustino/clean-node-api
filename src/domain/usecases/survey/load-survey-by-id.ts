@@ -1,5 +1,11 @@
 import { type SurveyModel } from '@/domain/models'
 
 export interface LoadSurveyById {
-  loadById: (id: string) => Promise<SurveyModel>
+  loadById: (params: LoadSurveyById.Params) => Promise<SurveyModel>
+}
+
+export namespace LoadSurveyById {
+  export type Params = {
+    surveyId: string
+  }
 }
