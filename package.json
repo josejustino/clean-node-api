@@ -12,6 +12,7 @@
     "start": "node dist/main/server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/main/server.ts",
     "build": "rimraf dist && tsc -p tsconfig-build.json",
+    "debug": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --no-lazy ./dist/main/server.js",
     "up": "npm i && npm run build && docker-compose up -d",
     "down": "docker-compose down",
     "lint": "eslint ./src --ext ts",
