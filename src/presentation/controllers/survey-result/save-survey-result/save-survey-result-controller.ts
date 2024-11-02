@@ -1,7 +1,7 @@
 import { type LoadSurveyById } from '@/domain/usecases/survey'
 import { type SaveSurveyResult } from '@/domain/usecases/survey-result'
 import { InvalidParamError } from '@/presentation/errors'
-import { forbidden, serverError } from '@/presentation/helpers/http'
+import { forbidden, ok, serverError } from '@/presentation/helpers/http'
 import { type Controller, type HttpRequest, type HttpResponse } from '@/presentation/protocols'
 
 export class SaveSurveyResultController implements Controller {
@@ -24,8 +24,8 @@ export class SaveSurveyResultController implements Controller {
       } else {
         return forbidden(new InvalidParamError('surveyId'))
       }
-      await this.saveSurveyResult.save({ accountId, answer, surveyId, date: new Date() })
-      return null
+      const surveyResult = await this.saveSurveyResult.save({ accountId, answer, surveyId, date: new Date() })
+      return ok(surveyResult)
     } catch (error) {
       return serverError(error)
     }
