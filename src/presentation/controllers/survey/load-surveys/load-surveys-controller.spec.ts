@@ -1,6 +1,6 @@
 import { noContent, ok, serverError } from '@/presentation/helpers/http'
 import { type SurveyModel } from '@/domain/models'
-import { type LoadSurveys } from '@/domain/usecases'
+import { type LoadSurveys } from '@/domain/usecases/survey'
 import { LoadSurveysController } from './load-surveys-controller'
 import MockDate from 'mockdate'
 

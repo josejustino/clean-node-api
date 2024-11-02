@@ -1,5 +1,5 @@
-import { type AddAccount } from '@/domain/usecases/add-account'
-import { type Authentication } from '@/domain/usecases/authentication'
+import { type AddAccount } from '@/domain/usecases/account/add-account'
+import { type Authentication } from '@/domain/usecases/account/authentication'
 import { EmailInUseError } from '@/presentation/errors'
 import { badRequest, forbidden, ok, serverError } from '@/presentation/helpers/http/http-helper'
 import { type Controller, type HttpRequest, type HttpResponse, type Validation } from '@/presentation/protocols'
