@@ -52,10 +52,10 @@ describe('Survey Routes', () => {
         .send({
           question: 'Question',
           answers: [{
-            answer: 'Anwers 1',
+            answer: 'Answer 1',
             image: 'http://image-name.com'
           }, {
-            answer: 'Anwers 2'
+            answer: 'Answer 2'
           }]
         })
         .expect(403)
@@ -69,10 +69,10 @@ describe('Survey Routes', () => {
         .send({
           question: 'Question',
           answers: [{
-            answer: 'Anwers 1',
+            answer: 'Answer 1',
             image: 'http://image-name.com'
           }, {
-            answer: 'Anwers 2'
+            answer: 'Answer 2'
           }]
         })
         .expect(204)
